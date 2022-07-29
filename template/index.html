@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicting Survival in the Titanic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .content {
+
+            width: 560px;
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 25px 30px;
+            border-radius: 5px;
+
+
+        }
+
+        .content::before {
+            content: "";
+            position: absolute;
+            background: url('https://wallpapercave.com/wp/FN5iFfN.jpg') no-repeat center center/cover;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 1;
+        }
+
+        .content .title {
+            font-size: 25px;
+            font-weight: 500;
+            position: relative;
+            text-align: center;
+            /* margin-bottom: 25px; */
+        }
+
+        .content .sub-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 7px;
+            margin-top: 15px;
+        }
+
+        .content .title::before {
+            content: '';
+            align-items: center;
+            position: absolute;
+            left: 60px;
+            bottom: -5px;
+            height: 3px;
+            width: 380px;
+            background: linear-gradient(135deg, #71b7e6, #fa0303);
+        }
+
+        .content form .user-detail {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        form .user-detail .input-box {
+            margin: 4px 0 2px 0;
+            margin-bottom: 15px;
+            width: calc(100%/2 - 20px);
+        }
+
+        form .user-detail .input-box #occupation {
+            height: 35px;
+            width: 100%;
+            outline: none;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            /* border-block-width: 2px; */
+            transition: all 0.3s ease;
+        }
+
+        .user-detail .input-box .details {
+            display: block;
+            font-weight: 550;
+            margin-bottom: 5px;
+        }
+
+        .user-detail .input-box input {
+            height: 35px;
+            width: 100%;
+            outline: none;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            /* border-block-width: 2px; */
+            transition: all 0.3s ease;
+        }
+
+        .user-detail .input-box input:focus {
+            /* .user-detail .input-box input:valid{ */
+            /* border: 2px solid #5e4eeb; */
+            border: 2px solid black;
+        }
+
+        form .button {
+            height: 45px;
+            width: 100%;
+            margin: 8px 0;
+        }
+
+        form .button button {
+            margin-top: 5px;
+            height: 100%;
+            width: 100%;
+            outline: none;
+            color: black;
+            background: linear-gradient(135deg, #71b7e6, #fa0303);
+            border: none;
+            font-size: 18px;
+            font-weight: 500;
+            /* letter-spacing: 1px; */
+            border-radius: 5px;
+        }
+
+        form .button button:hover {
+            /* background: linear-gradient(-135deg, #71b7e6, #ee58c1);    */
+            border: 2px solid rgb(63, 55, 55);
+            cursor: pointer;
+            font-size: 19px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="title">Predicting Survival in the Titanic</div>
+        <div class="sub-title">Predictive Analysis</div>
+        <form action="/predict" method="POST">
+            <div class="user-detail">
+                <div class="input-box">
+                    <span class="details">Pclass <br>(Enter Values in B/W 1 to 3) </span>
+                    <input id="first" name="Pclass" type="number ">
+                </div>
+                <div class="input-box">
+                    <span class="details">Sex</span>
+                    <select id="Sex" name="Sex">
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Age</span>
+                    <input id="third" name="Age" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">SibSp<br>(Enter Values in B/W 0 to 8)</span>
+                    <input id="fourth" name="SibSp" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">Parch<br>(Enter Values in B/W 0 to 6)</span>
+                    <input id="fifth" name="Parch" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">Fare</span>
+                    <input name="Fare" id="six" required="required">
+                </div>
+
+            </div>
+            <div class="button">
+                <button id="sub" type="submit ">Calculate the Selling Price</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
